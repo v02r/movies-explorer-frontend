@@ -3,11 +3,11 @@ import foto from "../../images/profile.jpeg";
 
 const AboutMe = forwardRef((props, ref) => {
     return (
-        <section className="about" id="student" ref={ref}>
-            <h2 className="about__header text_subtitle underline-about">Студент</h2>
+        <section className="about" ref={ref}>
+            <h2 className="about__header subtitle underline-about">Студент</h2>
             <div className="about__info">
                 <div className="about__info-description">
-                    <h3 className="about__info-title text_title">Валерий</h3>
+                    <h3 className="about__info-title text-title">Валерий</h3>
                     <p className="about__info-subtitle">Фронтенд-разработчик, 41 год</p>
                     <p className="about__info-description">
                         Я из Рязани, закончил МГУКИ по направлению реклама и PR. Женат, дочка учится в

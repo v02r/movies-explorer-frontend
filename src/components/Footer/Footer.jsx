@@ -1,7 +1,7 @@
 function Footer() {
     return (
       <footer className="footer">
-        <h3 className="footer__title text color_text underline-footer">
+        <h3 className="footer__title text color-text underline-footer">
           Учебный проект Яндекс.Практикум х BeatFilm.
         </h3>
         <div className="footer__row">
@@ -34,6 +34,5 @@ function Footer() {
       </footer>
     );
   }
-  
+
   export default Footer;
-  

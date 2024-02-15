@@ -25,7 +25,7 @@ function MoviesCard({movie}) {
             <div className="card__container">
                 <button
                     type="button"
-                    className={`card__favorite color_secondary link ${
+                    className={`card__favorite link ${
                         isSavedMovies && "card__favorite_delete"
                     }`}
                     onClick={handleClickFavorite}
@@ -34,7 +34,7 @@ function MoviesCard({movie}) {
             </div>
             <div className="card__footer">
                 <h2 className="card__title">{movie.nameRU}</h2>
-                <p className="card__duration text color_text color_background">{`${hours}ч ${minutes}м`}</p>
+                <p className="card__duration text color-text">{`${hours}ч ${minutes}м`}</p>
             </div>
         </article>
     );

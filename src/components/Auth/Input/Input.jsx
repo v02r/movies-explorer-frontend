@@ -4,12 +4,12 @@ function Input({ title, onChange, name, type = "text", error, minLength, maxLeng
   const requiredProps = type === "text" ? { minLength: 2, maxLength: 30, required: true } : null;
 
   return (
-    <label className="input-label text_input color_text">
+    <label className="input-label text-input ">
       {title}
       <input
         name={name}
         type={type}
-        className={`input ${error && "color_error"}`}
+        className={`input ${error && "color-error"}`}
         onChange={onChange}
         minLength={minLength}
         maxLength={maxLength}

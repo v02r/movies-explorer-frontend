@@ -19,7 +19,7 @@ const InfoToolTip = ({ infoToolTip, onClose }) => {
     };
   }, [handleCloseByEsc]);
 
-  const { success, message, isOpen } = infoToolTip;
+  const { success, message = "Сообщение", isOpen } = infoToolTip;
 
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>

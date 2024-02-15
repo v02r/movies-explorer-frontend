@@ -3,10 +3,10 @@ import SearchForm from "../SearchForm/SearchForm";
 
 function Movies({ moviesList, loading }) {
   return (
-    <main className="movies">
+    <div className="movies">
       <SearchForm />
       <MoviesCardList moviesList={moviesList} loading={loading} />
-    </main>
+    </div>
   );
 }
 

@@ -58,10 +58,10 @@ function Register({ onRegister, success }) {
             maxLenght={30}
             required />
         </div>
-        <button type="submit" className="auth__submit-register text_submit link">Зарегистрироваться</button>
+        <button type="submit" className="auth__submit-register link">Зарегистрироваться</button>
       </form>
       <div className="auth__link-container">
-        <p className="color_text">Уже зарегестрированны?</p>
+        <p className="color-text">Уже зарегестрированны?</p>
         <Link to="/signin" className="auth__link">
           Войти
         </Link>

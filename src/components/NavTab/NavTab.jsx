@@ -4,21 +4,21 @@ const NavTab = ({ handleButtonClick }) => {
         <ul className="promo__list">
           <li
             id="aboutProject"
-            className="promo__list-item color_stack text"
+            className="promo__list-item text"
             onClick={handleButtonClick}
           >
             О проекте
           </li>
           <li
             id="techs"
-            className="promo__list-item color_stack text"
+            className="promo__list-item text"
             onClick={handleButtonClick}
           >
             Технологии
           </li>
           <li
             id="student"
-            className="promo__list-item color_stack text"
+            className="promo__list-item text"
             onClick={handleButtonClick}
           >
             Студент
@@ -27,5 +27,5 @@ const NavTab = ({ handleButtonClick }) => {
       </nav>
     );
   };
-  
+
   export default NavTab;

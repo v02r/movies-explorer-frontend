@@ -1,27 +1,17 @@
-.color_primary {
-  background-color: #3ddc84;
-  color: black !important;
-  padding: 8px 20px 8px 20px;
-  border-radius: 3px;
+
+
+a:hover, a:focus, button:hover, button:focus {
+    opacity: 0.8;
+    cursor: pointer;
+
 }
 
-.color_secondary {
-  background: #303030;
-}
-
-.color_stack {
-  background-color: #303030;
-}
-
-.color_text {
+.color-text {
   color: rgba(139, 139, 139, 1);
 }
 
-.color_background {
-  background-color: #272727;
-}
 
-.color_error {
+.color-error {
   color: #ee3465 !important;
 }
 
@@ -32,21 +22,21 @@
   line-height: calc(18 / 12);
 }
 
-.text_input {
+.text-input {
   color: #8b8b8b;
   font-size: 10px;
   font-weight: 400;
   line-height: normal;
 }
 
-.text_title {
+.text-title {
   margin: 0;
   font-weight: 400;
   font-size: 50px;
   line-height: 116%;
 }
 
-.text_subtitle {
+.subtitle {
   margin: 0;
   font-weight: 400;
   font-size: 20px;
@@ -54,7 +44,7 @@
   letter-spacing: -0.88px;
 }
 
-.text_medium {
+.text-medium {
   margin: 0;
   font-weight: 400;
   font-size: 30px;
@@ -74,6 +64,10 @@
   font-size: 18px;
   font-weight: 500;
   line-height: normal;
+}
+
+.link-burger_secondary {
+  background: #303030;
 }
 
 .link:hover {
@@ -137,17 +131,17 @@
     font-weight: 400;
     line-height: normal;
   }
-  .text_medium {
+  .text-medium {
     font-size: 18px;
     line-height: calc(28 / 18);
   }
 
-  .text_title {
+  .text-title {
     font-size: 50px;
     font-weight: 400;
     line-height: 116%;
   }
-  .text_subtitle {
+  .subtitle {
     font-size: 22px;
     font-weight: 400;
     line-height: calc(22 / 18);
@@ -161,11 +155,9 @@
 }
 
 @media screen and (max-width: 320px) {
-  .color_primary {
-    padding: 5px 12px;
-  }
 
-  .color_text {
+
+  .color-text {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -178,18 +170,18 @@
     line-height: 16px;
   }
 
-  .text_title {
+  .text-title {
     font-size: 30px;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.2px;
   }
 
-  .tech__text {
+  .techs__text {
     margin: 0;
   }
 
-  .text_subtitle {
+  .subtitle {
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
@@ -203,8 +195,8 @@
   }
 
   .link {
-    font-size: 10px;
-    font-weight: 500;
-    line-height: 16px;
+    /*font-size: 10px;*/
+    /*font-weight: 500;*/
+    /*line-height: 16px;*/
   }
 }

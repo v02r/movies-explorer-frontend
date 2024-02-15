@@ -42,7 +42,7 @@ function Header({ isAuth }) {
             </div>
             </li>
             <li className="header__movies-item header__profile">
-              <Link to="/profile" className="header__link-profile color_secondary link" onClick={handleCloseMenu}>
+              <Link to="/profile" className="header__link-profile header__link-profile_secondary link" onClick={handleCloseMenu}>
                 Аккаунт
               </Link>
             </li>
@@ -59,7 +59,7 @@ function Header({ isAuth }) {
       ) : (
         <div className="header__navigate-auth">
            <Link to="/">
-            <img className="link" src={logo} alt="Логотип" href="/"/>
+            <img className="link" src={logo} alt="Логотип"/>
             </Link>
         <nav className="header__navigate">
           <ul className="header__auth text">
@@ -68,7 +68,7 @@ function Header({ isAuth }) {
                 Регистрация
               </Link>
             </li>
-            <li className="header__auth-item color_primary link">
+            <li className="header__auth-item header__auth-item_accent  link">
               <Link to="/signin" className="header__link">
                 Войти
               </Link>
@@ -99,7 +99,7 @@ function Header({ isAuth }) {
               </Link>
             </li>
             <li className="burger__movies-item">
-              <Link to="/profile" className="burger__link-profile color_secondary link-burger" onClick={handleCloseMenu}>
+              <Link to="/profile" className="burger__link-profile link-burger link-burger-secondary" onClick={handleCloseMenu}>
                 Аккаунт
               </Link>
             </li>

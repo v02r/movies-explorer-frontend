@@ -21,7 +21,7 @@
   list-style-type: none;
 }
 
-.project__about-column {
+.project__column {
   max-width: 500px;
   max-height: 90px;
 }
@@ -56,6 +56,13 @@
 
 .project__duration-time {
   padding: 10px 0;
+  background-color: #3ddc84;
+  color: black;
+  border-radius: 3px;
+}
+.project__duration-time_long {
+  background: #303030;
+  color: white;
 }
 
 .project__duration-name {
@@ -64,7 +71,7 @@
 
 @media screen and (max-width: 768px) {
   .project {
-    padding: 80px 50px;
+    padding: 80px 50px 90px 50px;
   }
 
   .project__about {
@@ -100,12 +107,17 @@
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
+    margin-bottom: 10px;
   }
 
   .project__about-title {
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
+  }
+
+  .project__about-text {
+    font-size: 11px;
   }
 
   .project__duration-area:nth-child(1) {

@@ -122,8 +122,8 @@
   .auth__logo {
     align-self: center;
     margin-left: 111px;
-    padding-bottom: 40px;
-    padding-top: 12px;
+    padding-bottom: 50px;
+    /*padding-top: 12px;*/
   }
   .auth__title {
     align-self: center;
@@ -131,9 +131,15 @@
 
   .auth__submit-login {
     margin-top: 244px;
+    font-size: 12px;
+  }
+
+  .auth__link-container {
+    font-size: 12px;
   }
 
   .auth__submit-register {
+    font-size: 12px;
     margin-top: 163px;
   }
 }

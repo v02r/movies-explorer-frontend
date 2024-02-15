@@ -20,7 +20,7 @@ function Login({ onLogin, success }) {
   return (
     <section className="auth">
       <Link to="/">
-        <img className="auth__logo link" src={logo} alt="Логотип" href="/"/>
+        <img className="auth__logo link" src={logo} alt="Логотип"/>
       </Link>
       <h2 className="auth__title">Рады видеть!</h2>
       <form className="auth__form" onSubmit={handleSubmit}>
@@ -46,9 +46,9 @@ function Login({ onLogin, success }) {
             value
           />
         </div>
-        <button type="submit" className="auth__submit-login text_submit link">Войти</button>
+        <button type="submit" className="auth__submit-login link">Войти</button>
         <div className="auth__link-container">
-          <p className="color_text">Ещё не зарегистрированы?</p>
+          <p className="color-text">Ещё не зарегистрированы?</p>
           <Link to="/signup" className="auth__link">
             Регистрация
           </Link>
