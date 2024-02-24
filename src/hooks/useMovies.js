@@ -16,7 +16,7 @@ export const useMovies = (fetchFilms) => {
     const filtredFilms = useMemo(() => {
         const { films } = state;
         console.log('films', films);
-        if (state.isLoading || search === "") {
+        if (state.isLoading) {
             return [];
         }
         if (!films.length) {

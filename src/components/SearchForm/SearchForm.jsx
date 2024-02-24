@@ -6,11 +6,13 @@ function SearchForm({ handleShortFilms, isChecked, handleSetSearch, search }) {
 
 
   function handleSubmit(e) {
+    if (input === "") return;
     e.preventDefault();
     handleSetSearch(input);
   }
 
   function handleCheckBoxChange(e) {
+    handleSetSearch(input);
     handleShortFilms(!isChecked);
     console.log("check", isChecked)
   }

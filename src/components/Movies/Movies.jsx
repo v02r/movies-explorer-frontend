@@ -27,8 +27,6 @@ function getMoviesCount(width) {
 
 function Movies() {
     const [filmsSaved, setFilmsSaved] = useState(null);
-    // const [preloader, setPreloader] = useState(false);
-    // const [errorText, setErrorText] = useState("");
     const [MoviesCount, setMoviesCount] = useState([]);
     const [filmsShowed, setFilmsShowed] = useState(null);
 
