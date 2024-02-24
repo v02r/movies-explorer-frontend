@@ -19,7 +19,7 @@ export const useMovies = (fetchFilms) => {
         if (state.isLoading) {
             return [];
         }
-        if (!films.length) {
+        if (!films.length && (search || shortFilms)) {
             setState({
                 ...state,
                 isLoading: true,
