@@ -1,12 +1,18 @@
-import { Link, useNavigate } from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import logo from "../../images/logo.svg";
 import Input from "./Input";
 import useForm from "../../hooks/useForm";
 
-function Login({ onLogin, success }) {
+function Login({ onLogin, success, isAuth }) {
   const { enteredValues, handleChange, isFormValid, resetForm, errors } = useForm();
 
+  const navigate = useNavigate();
 
+
+    if (isAuth) {
+        navigate(-1)
+        return null;
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -54,6 +54,8 @@ function App() {
                 .finally(() => {
                     setLoading(false);
                 });
+        } else {
+            setLoading(false);
         }
     }, []);
 
@@ -132,7 +134,7 @@ function App() {
     function onSignout() {
         setIsAuth(false);
         localStorage.clear();
-        navigate("/signin", {replace: true});
+        navigate("/", {replace: true});
     }
 
     useEffect(() => {
@@ -208,11 +210,11 @@ function App() {
                     />
                     <Route
                         path="/signin"
-                        element={<Login onLogin={onLogin} success={infoToolTip.success}/>}
+                        element={<Login isAuth={isAuth} onLogin={onLogin} success={infoToolTip.success}/>}
                     />
                     <Route
                         path="/signup"
-                        element={<Register onRegister={onRegister} success={infoToolTip.success}/>}
+                        element={<Register isAuth={isAuth} onRegister={onRegister} success={infoToolTip.success}/>}
                     />
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>

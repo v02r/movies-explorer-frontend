@@ -32,9 +32,6 @@ function Profile({  handleUpdateUser, handleSignout }) {
     }, [currentUser, resetForm]);
 
 
-    const isNotChanged = (currentUser.name === enteredValues.name && currentUser.email === enteredValues.email);
-
-
   return (
     <section className="profile">
       <h1 className="profile__title text-medium">Привет, {user.name}!</h1>
