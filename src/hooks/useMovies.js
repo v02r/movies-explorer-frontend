@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
+import {SHORT_DURATION} from "../utils/constants";
 
 export const useMovies = (fetchFilms) => {
     const [state, setState] = useState({
@@ -11,7 +12,6 @@ export const useMovies = (fetchFilms) => {
 
     const [search, setSearch] = useState(localStorageSearch);
     const [shortFilms, setShortFilms] = useState(localStorageTumbler);
-    const SHORT_DURATION = 40;
 
     const filtredFilms = useMemo(() => {
         const { films } = state;

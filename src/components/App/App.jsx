@@ -12,7 +12,6 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import InfoToolTip from "../InfoToolTip/InfoToolTip";
-import {data} from "../../utils/constants";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import MainApi from "../../utils/MainApi";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -22,10 +21,6 @@ function App() {
     const [isAuth, setIsAuth] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState({name: "Тест", email: "test@gmail.com"});
-
-    const [favoriteMovies, setFavoriteMovies] = useState(data.slice(0, 6));
-    const [moviesList, setMoviesList] = useState(data);
 
     const [infoToolTip, setInfoTooltip] = useState({
         message: "",
@@ -58,7 +53,6 @@ function App() {
             setLoading(false);
         }
     }, []);
-
 
     function onClosePopup() {
         setInfoTooltip({...infoToolTip, isOpen: false});
@@ -183,7 +177,7 @@ function App() {
                         element={
                             <ProtectedRoute isAuth={isAuth} loading={loading}>
                                 <Wrap>
-                                    <Movies moviesList={moviesList} />
+                                    <Movies />
                                 </Wrap>
                             </ProtectedRoute>
                         }
@@ -193,7 +187,7 @@ function App() {
                         element={
                             <ProtectedRoute isAuth={isAuth} loading={loading}>
                                 <Wrap>
-                                    <SavedMovies moviesList={favoriteMovies}/>
+                                    <SavedMovies/>
                                 </Wrap>
                             </ProtectedRoute>
                         }
@@ -203,7 +197,7 @@ function App() {
                         element={
                             <ProtectedRoute isAuth={isAuth} loading={loading}>
                                 <Wrap footer={false}>
-                                    <Profile handleSignout={onSignout} user={user} handleUpdateUser={handleUpdateUser}/>
+                                    <Profile handleSignout={onSignout} handleUpdateUser={handleUpdateUser}/>
                                 </Wrap>
                             </ProtectedRoute>
                         }

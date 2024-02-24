@@ -2,6 +2,10 @@ import {useLocation} from "react-router-dom";
 import {MOVIES_API_URL} from "../../utils/constants";
 import {useEffect, useState} from "react";
 
+function getMovieDuration(mins) {
+    return `${Math.floor(mins / 60)}ч ${mins % 60}м`;
+}
+
 function MoviesCard({ movie, savedMoviesToggle, filmsSaved }) {
     const { pathname } = useLocation();
     const [favorite, setFavorite] = useState(false);
@@ -18,9 +22,7 @@ function MoviesCard({ movie, savedMoviesToggle, filmsSaved }) {
         savedMoviesToggle(movie, false);
     }
 
-    function getMovieDuration(mins) {
-        return `${Math.floor(mins / 60)}ч ${mins % 60}м`;
-    }
+
 
     useEffect(() => {
         if (pathname !== '/saved-movies') {

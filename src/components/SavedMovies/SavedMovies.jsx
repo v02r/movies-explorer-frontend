@@ -5,7 +5,7 @@ import {useState} from "react";
 import {useSavedMovies} from "../../hooks/useSavedMovies";
 import Preloader from "../Preloader/Preloader";
 
-function SavedMovies({ moviesList }) {
+function SavedMovies() {
     const [preloader, setPreloader] = useState(false);
     const [errorText, setErrorText] = useState("");
 
@@ -15,7 +15,6 @@ function SavedMovies({ moviesList }) {
         handleSetSearch,
         handleSetShortFilms,
         filteredFilms,
-        initFilms,
         shortFilms,
         search,
         handleDeleteSaved,

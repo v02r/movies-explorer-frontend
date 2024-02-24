@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
+import {SHORT_DURATION} from "../utils/constants";
 
 export const useSavedMovies = (MainApi) => {
     const [state, setState] = useState({
@@ -9,7 +10,6 @@ export const useSavedMovies = (MainApi) => {
 
     const [search, setSearch] = useState('');
     const [shortFilms, setShortFilms] = useState(false);
-    const SHORT_DURATION = 40;
 
     useEffect(() => {
         setState({

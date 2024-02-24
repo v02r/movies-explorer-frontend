@@ -5,14 +5,11 @@ import {useEffect, useState} from "react";
 import {moviesApi} from "../../utils/MoviesApi";
 import {useMovies} from "../../hooks/useMovies";
 import Preloader from "../Preloader/Preloader";
+import {MOVIES_COUNT_CONFIG} from "../../utils/constants";
 
 function getMoviesCount(width) {
     let countCards;
-    const MoviesCountConfig = {
-        1200: [12, 3],
-        760: [8, 2],
-        320: [5, 2],
-    };
+    const MoviesCountConfig = MOVIES_COUNT_CONFIG;
 
     Object.keys(MoviesCountConfig)
         .sort((a, b) => a - b)
@@ -66,9 +63,8 @@ function Movies() {
     }, [MoviesCount]);
 
     function handleMore() {
-        const spliceFilms = filteredFilms;
         const newFilmsShowed = filmsShowed.concat(
-            spliceFilms.slice(filmsShowed.length, MoviesCount[1] + filmsShowed.length)
+            filteredFilms.slice(filmsShowed.length, MoviesCount[1] + filmsShowed.length)
         );
         setFilmsShowed(newFilmsShowed);
     }
