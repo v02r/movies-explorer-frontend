@@ -33,6 +33,14 @@
   font-weight: 500;
   line-height: normal;
 }
+
+.profile__error {
+  text-align: right;
+  margin-top: 0;
+  color: #ee3465;
+  font-size: 10px;
+  height: 12px;
+}
 /*
   .profile__label:first-child:before {
     position: absolute;
@@ -76,6 +84,11 @@
   padding: 10px 20px;
   text-align: center;
   border: none;
+}
+
+.profile__edit:disabled {
+  opacity: 0.8;
+  cursor: default;
 }
 
 

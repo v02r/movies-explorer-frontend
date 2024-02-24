@@ -2,24 +2,16 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import Input from "./Input";
+import useForm from "../../hooks/useForm";
 
 function Register({ onRegister, success }) {
+    const { enteredValues, handleChange, isFormValid, resetForm, errors } = useForm();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState({ name: "", email: "", password: "" });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError({ ...error, [e.target.name]: e.target.validationMessage });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister(formData);
+    onRegister(enteredValues);
   };
 
   return (
@@ -33,8 +25,9 @@ function Register({ onRegister, success }) {
           <Input
             name="name"
             title="Имя"
+            minLength={2}
             onChange={handleChange}
-            error={error.name}
+            error={errors.name || ""}
             placeholder="Ваше имя"
             required />
           <Input
@@ -42,7 +35,7 @@ function Register({ onRegister, success }) {
             name="email"
             title="E-mail"
             onChange={handleChange}
-            error={error.email}
+            error={errors.email || ""}
             placeholder="Ваш email"
             minLength={6}
             maxLenght={30}
@@ -52,13 +45,13 @@ function Register({ onRegister, success }) {
             name="password"
             title="Пароль"
             onChange={handleChange}
-            error={error.password}
+            error={errors.password || ""}
             placeholder="Придумайте пароль"
             minLength={6}
             maxLenght={30}
             required />
         </div>
-        <button type="submit" className="auth__submit-register link">Зарегистрироваться</button>
+        <button type="submit" disabled={!isFormValid} className="auth__submit-register link">Зарегистрироваться</button>
       </form>
       <div className="auth__link-container">
         <p className="color-text">Уже зарегестрированны?</p>
