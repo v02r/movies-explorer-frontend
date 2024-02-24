@@ -26,9 +26,9 @@ function getMoviesCount(width) {
 }
 
 function Movies() {
-    const [filmsSaved, setFilmsSaved] = useState(null);
+    const [filmsSaved, setFilmsSaved] = useState([]);
     const [MoviesCount, setMoviesCount] = useState([]);
-    const [filmsShowed, setFilmsShowed] = useState(null);
+    const [filmsShowed, setFilmsShowed] = useState([]);
 
     const {
         handleSetSearch,
@@ -59,6 +59,11 @@ function Movies() {
             window.removeEventListener("resize", handlerResize);
         };
     }, []);
+
+    useEffect(() => {
+        const ind = filmsShowed.length - filmsShowed.length % MoviesCount[1];
+        setFilmsShowed(prev => prev.slice(0, ind))
+    }, [MoviesCount]);
 
     function handleMore() {
         const spliceFilms = filteredFilms;
