@@ -6,6 +6,7 @@ import {moviesApi} from "../../utils/MoviesApi";
 import {useMovies} from "../../hooks/useMovies";
 import Preloader from "../Preloader/Preloader";
 import {MOVIES_COUNT_CONFIG} from "../../utils/constants";
+import useResize from "../../hooks/useResize";
 
 function getMoviesCount(width) {
     let countCards;
@@ -27,6 +28,8 @@ function Movies() {
     const [MoviesCount, setMoviesCount] = useState([]);
     const [filmsShowed, setFilmsShowed] = useState([]);
 
+    const screenWidth = useResize();
+
     const {
         handleSetSearch,
         handleSetShortFilms,
@@ -42,25 +45,8 @@ function Movies() {
     const mainApi = new MainApi(localStorage.getItem("jwt"));
 
     useEffect(() => {
-        const clientWidth1 = document.documentElement.clientWidth;
-        setMoviesCount(getMoviesCount(clientWidth1));
-
-
-        const handlerResize = () => {
-            const clientWidth = document.documentElement.clientWidth;
-            setMoviesCount(getMoviesCount(clientWidth))
-        };
-        window.addEventListener("resize", handlerResize);
-
-        return () => {
-            window.removeEventListener("resize", handlerResize);
-        };
-    }, []);
-
-    useEffect(() => {
-        const ind = filmsShowed.length - filmsShowed.length % MoviesCount[1];
-        setFilmsShowed(prev => prev.slice(0, ind))
-    }, [MoviesCount]);
+        setMoviesCount(getMoviesCount(screenWidth));
+    }, [screenWidth]); 
 
     function handleMore() {
         const newFilmsShowed = filmsShowed.concat(
@@ -70,11 +56,9 @@ function Movies() {
     }
 
     useEffect(() => {
-        const clientWidth = document.documentElement.clientWidth;
-
-        const sliceData = filteredFilms.slice(0, getMoviesCount(clientWidth)[0]);
+        const sliceData = filteredFilms.slice(0, getMoviesCount(screenWidth)[0]);
         setFilmsShowed(sliceData);
-    }, [filteredFilms]);
+    }, [filteredFilms, screenWidth]);
 
     async function savedMoviesToggle(film, favorite) {
         const jwt = localStorage.getItem("jwt");
