@@ -57,8 +57,9 @@ export const useSavedMovies = (MainApi) => {
         const result = [];
 
         for (const film of films) {
-            const { nameRU, duration } = film;
-            const searched = search && nameRU.includes(search.toLowerCase());
+            const { nameRU, duration, nameEN } = film;
+            const searched = search && nameRU.toLowerCase().includes(search.toLowerCase()) || nameEN.toLowerCase().includes(search.toLowerCase());
+
             const short = shortFilms && duration < SHORT_DURATION;
 
             if (search && shortFilms) {
