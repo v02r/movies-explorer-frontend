@@ -52,6 +52,7 @@
 
 .card__favorite {
   position: absolute;
+  z-index: 100;
   top: 14px;
   right: 14px;
   width: 72px;

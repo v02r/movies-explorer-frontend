@@ -1,64 +1,96 @@
-import { useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import {CurrentUserContext, useCurrentUser} from "../../contexts/CurrentUserContext";
+import useForm from "../../hooks/useForm";
 
-function Profile({ user, handleUpdateUser, handleSignout }) {
-  const [userInfo, setUserInfo] = useState({ name: user.name, email: user.email });
+function Profile({  handleUpdateUser, handleSignout }) {
+    const currentUser = useCurrentUser();
+    const user = currentUser;
+
+    const { enteredValues, handleChange, isFormValid, resetForm, errors } = useForm();
 
   const [isEditing, setIsEditing] = useState(false);
 
-  function handleChange(e) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
-  }
+        const isNotChanged = (currentUser.name === enteredValues.name && currentUser.email === enteredValues.email);
+        if (isNotChanged ) {
+            setIsEditing(false);
+            return;
+        };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsEditing(false);
-    handleUpdateUser(userInfo);
-  }
+        setIsEditing(false);
+        handleUpdateUser({
+            name: enteredValues.name,
+            email: enteredValues.email,
+        });
+    };
+
+    useEffect(() => {
+        currentUser ? resetForm(currentUser) : resetForm();
+    }, [currentUser, resetForm]);
+
 
   return (
     <section className="profile">
       <h1 className="profile__title text-medium">Привет, {user.name}!</h1>
-      <form action="submit" className="profile__form text">
-        <label className="profile__label underline-profile">
-         Имя:
-          <input
-            name="name"
-            type="text"
-            className="profile__input"
-            value={userInfo.name}
-            onChange={handleChange}
-            disabled={!isEditing}
-          />
-        </label>
-        <label className="profile__label">
-          E-mail:
-          <input
-            name="email"
-            type="text"
-            className="profile__input"
-            value={userInfo.email}
-            onChange={handleChange}
-            disabled={!isEditing}
+        <form action={""} className="profile__form text">
+            <label className="profile__label underline-profile">
+                Имя:
+                <input
+                    name="name"
+                    type="text"
+                    className="profile__input"
+                    value={enteredValues.name || ""}
+                    onChange={handleChange}
+                    disabled={!isEditing}
+                    required
+                    minLength={2}
+                    maxLength={30}
+                />
+            </label>
+            {errors.name && <div className={" text profile__error"}>
+                {errors.name || ""}
+            </div>}
+            <label className="profile__label">
+                E-mail:
+                <input
+                    name="email"
+                    type="email"
+                    className="profile__input"
+                    value={enteredValues.email || ""}
+                    onChange={handleChange}
+                    disabled={!isEditing}
+                    minLength={6}
+                    maxLength={30}
+                    required
+                />
 
-          />
-        </label>
+            </label>
+            {errors.email && <div className={" text profile__error"}>
+                {errors.email || ""}
+            </div>}
 
-        {isEditing ? (
-            <button type="button" className="profile__edit link text" onClick={handleSubmit}>
-                Сохранить
-            </button>
-        ) : (
-            <button type="submit" className="profile__submit link text" onClick={() => setIsEditing(true)}>
-                Редактировать
-            </button>
-        )}
+            {isEditing ? (
+                <button type="submit" className="profile__edit link text" onClick={handleSubmit}
+                        disabled={!isFormValid}>
+                    Сохранить
+                </button>
+            ) : (
+                <button type="button" className="profile__submit link text" onClick={(e) => {
+                    e.preventDefault();
 
-      </form>
-      <button onClick={handleSignout} className="profile__logout link text">
-        Выйти из аккаунта
-      </button>
+                    setIsEditing(true)
+                }}>
+                    Редактировать
+                </button>
+            )}
+
+        </form>
+        <button onClick={handleSignout} className="profile__logout link text">
+            Выйти из аккаунта
+        </button>
     </section>
   );
 }
